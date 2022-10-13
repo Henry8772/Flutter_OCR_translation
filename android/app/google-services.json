@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "35344426188",
+    "project_id": "menu-demo-41144",
+    "storage_bucket": "menu-demo-41144.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35344426188:android:9060ac3d6640af41234e69",
+        "android_client_info": {
+          "package_name": "com.example.flutter_ocr_translation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35344426188-d5ao119abcu1ndue53vs94vu41i5ta8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlzSNNkjK-jTzFXVW52Zs3fTWXSOriLmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35344426188-d5ao119abcu1ndue53vs94vu41i5ta8b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "35344426188-ccj5gje7vfd104vcn5kc0rm2julvscdr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterOcrTranslation"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35344426188:android:a2e54b9140cf282e234e69",
+        "android_client_info": {
+          "package_name": "com.example.menu_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35344426188-d5ao119abcu1ndue53vs94vu41i5ta8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlzSNNkjK-jTzFXVW52Zs3fTWXSOriLmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35344426188-d5ao119abcu1ndue53vs94vu41i5ta8b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "35344426188-ccj5gje7vfd104vcn5kc0rm2julvscdr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterOcrTranslation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
