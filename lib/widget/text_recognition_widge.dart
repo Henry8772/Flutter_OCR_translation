@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ocr_translation/widget/text_area_widget.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../api/firebase_ml_api.dart';
 import 'controls_widget.dart';
 
 class TextRecognitionWidget extends StatefulWidget {
   const TextRecognitionWidget({
-    Key key,
+    required Key key,
   }) : super(key: key);
 
   @override
@@ -18,7 +19,8 @@ class TextRecognitionWidget extends StatefulWidget {
 
 class _TextRecognitionWidgetState extends State<TextRecognitionWidget> {
   String text = '';
-  File image;
+  late File image;
+  String imagePath = '';
 
   @override
   Widget build(BuildContext context) => Expanded(
@@ -30,43 +32,51 @@ class _TextRecognitionWidgetState extends State<TextRecognitionWidget> {
           onClickedPickImage: pickImage,
           onClickedScanText: scanText,
           onClickedClear: clear,
+          key: const ObjectKey("pickImage"),
         ),
         const SizedBox(height: 16),
         TextAreaWidget(
           text: text,
-          onClickedCopy: copyToClipboard, key: null,
+          onClickedCopy: copyToClipboard, key: const ObjectKey("textArea"),
         ),
       ],
     ),
   );
 
   Widget buildImage() => Container(
-    child: image != null
+    child: imagePath != ""
         ? Image.file(image)
         : Icon(Icons.photo, size: 80, color: Colors.black),
   );
 
   Future pickImage() async {
-    final file = await ImagePicker().getImage(source: ImageSource.gallery);
-    setImage(File(file.path));
+
+    XFile? pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    imagePath = pickedImage!.path;
+    image = File(imagePath);
+
+    // final file = await ImagePicker().getImage(source: ImageSource.gallery);
+    setImage(image);
   }
 
   Future scanText() async {
     showDialog(
       context: context,
-      child: Center(
-        child: CircularProgressIndicator(),
-      ),
+      builder: (BuildContext context){
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      }
     );
 
-    final text = await FirebaseMLApi.recogniseText(image);
+    final text = await FirebaseMLApi.recogniseText(image, imagePath);
     setText(text);
 
     Navigator.of(context).pop();
   }
 
   void clear() {
-    setImage(null);
+    // setImage(null);
     setText('');
   }
 

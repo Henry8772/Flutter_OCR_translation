@@ -19,7 +19,7 @@ class MainPage extends StatefulWidget {
   final String title;
 
   const MainPage({
-    @required this.title,
+    required this.title,
   });
 
   @override
@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
       child: Column(
         children: [
           const SizedBox(height: 25),
-          TextRecognitionWidget(),
+          TextRecognitionWidget(key: const ObjectKey("textRec"),),
           const SizedBox(height: 15),
         ],
       ),
